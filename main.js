@@ -96,8 +96,8 @@ module.exports = class UpdatePrioPlugin extends Plugin {
 
                 while (j < lines.length && /^[ \t]+- /.test(lines[j])) {
                     const sub = lines[j].trim();
-                    const sp = sub.match(/^start_prio:: (\d+)/);
-                    const cd = sub.match(/^created:: (\d{4}-\d{2}-\d{2})/);
+                    const sp = sub.match(/^-+\s*start_prio:: (\d+)/i);
+                    const cd = sub.match(/^-+\s*created:: (\d{4}-\d{2}-\d{2})/i);
                     if (sp) startPrio = parseInt(sp[1], 10);
                     if (cd) createdDate = cd[1];
                     j++;
